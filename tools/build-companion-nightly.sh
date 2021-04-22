@@ -4,7 +4,7 @@
 set -e
 set -x
 
-JOBS=3
+JOBS=$(nproc)
 
 while [ $# -gt 0 ]
 do
