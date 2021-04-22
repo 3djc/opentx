@@ -4,7 +4,9 @@
 set -e
 set -x
 
-JOBS=$(nproc)
+
+num_cpus=$(nproc)
+: "${JOBS:=$num_cpus}"
 
 while [ $# -gt 0 ]
 do
