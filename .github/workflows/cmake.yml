@@ -22,9 +22,13 @@ jobs:
       # We'll use this as our working directory for all subsequent commands
       run: cmake -E make_directory ${{github.workspace}}/build
       
-    - name: Add build specifics
-      # Add pillow required for COLORLCD
-      run: pip3 install pillow
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.12.9'  
+      
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip Pillow
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
