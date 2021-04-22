@@ -26,12 +26,7 @@ jobs:
       uses: jurplel/install-qt-action@v2
       with:
         version: '5.12.9'
-     
-    - name: Install ARM toolchain
-      uses: fiam/arm-none-eabi-gcc@v1
-      with:
-        release: '6-2017-q2' 
-      
+        
     - name: Install dependencies
       run: python -m pip install --upgrade pip Pillow
 
@@ -49,5 +44,5 @@ jobs:
       working-directory: ${{github.workspace}}/build
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake companion --build . --config $BUILD_TYPE
+      run: cmake --build . --config $BUILD_TYPE --target companion
 
