@@ -57,13 +57,7 @@ jobs:
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: mkdir ${{github.workspace}}/output && tools/build-companion-nightly.sh ${{github.workspace}}  ${{github.workspace}}/output/
-      
-    - name: Debug
-      working-directory: ${{github.workspace}}
-      shell: bash
-      # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: ls -l ${{github.workspace}}/output  
-      
+
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -71,21 +65,4 @@ jobs:
        path:  ${{github.workspace}}/output
        retention-days: 1
 
-  Upload:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download for job build
-        uses: actions/download-artifact@v2
-        with:
-          name: companion
-      - name: Upload ftp
-        uses: sebastianpopp/ftp-action@releases/v2
-        with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          localDir: ""
-          remoteDir: ""
-          options: "--delete"
 
