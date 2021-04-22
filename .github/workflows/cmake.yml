@@ -59,16 +59,16 @@ jobs:
       run: tools/build-companion-nightly.sh ${{github.workspace}} ${{github.workspace}}/output
 
   Upload:
-   runs-on: ubuntu-latest
-
-   steps:
-    - name: Upload ftp
-      uses: sebastianpopp/ftp-action@releases/v2
-      with:
-        host: ${{ secrets.FTP_SERVER }}
-        user: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        localDir: ${{github.workspace}}/output
-        remoteDir: ""
-        options: "--delete"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload ftp
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: ${{github.workspace}}/output
+          remoteDir: ""
+          options: "--delete"
 
