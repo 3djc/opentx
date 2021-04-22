@@ -5,7 +5,7 @@ set -e
 set -x
 
 
-num_cpus=$(nproc)
+num_cpus=$(sysctl -n hw.ncpu)
 : "${JOBS:=$num_cpus}"
 
 while [ $# -gt 0 ]
