@@ -56,19 +56,19 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: tools/build-companion-nightly.sh ${{github.workspace}}  ${{github.workspace}}/output
+      run: tools/build-companion-nightly.sh ${{github.workspace}}  ${{github.workspace}}/output/
       
     - name: Debug
       working-directory: ${{github.workspace}}
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: ls -l ${{github.workspace}}/output   
+      run: ls -l ${{github.workspace}}/output  
       
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
        name: companion
-       path:  ${{github.workspace}}/output/companion
+       path:  ${{github.workspace}}/output
        retention-days: 1
 
   Upload:
