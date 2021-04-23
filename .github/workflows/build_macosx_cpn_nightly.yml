@@ -1,4 +1,4 @@
-name: CMake
+name: Do MacOSX Companion nightly
 
 on: workflow_dispatch
 
