@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: companion-nightly
+      - name: temp file
+        working-directory: ${{github.workspace}}
+        shell: bash
+        run: touch fake_companion.dmg
         
       - name: ftp
         working-directory: ${{github.workspace}}
