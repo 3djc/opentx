@@ -96,7 +96,5 @@ jobs:
     - name: ftp
       working-directory: ${{github.workspace}}
       shell: bash
-      run:  ls -l &&
-            ls -l output/ &&
-            lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; put ${{github.workspace}}/output/*.dmg"
+      run:  lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mput ${{github.workspace}}/output/*.dmg"
 
