@@ -1,4 +1,4 @@
-name: CMake
+name: Do MacOSX release Companion
 
 on: workflow_dispatch
 
