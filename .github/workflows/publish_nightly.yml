@@ -24,4 +24,5 @@ jobs:
       - name: ftp
         working-directory: ${{github.workspace}}
         shell: bash
-        run: lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; put -O / /*"
+        run:  apt-get install lftp
+              lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; put -O / /*"
