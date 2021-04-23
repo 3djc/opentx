@@ -28,10 +28,11 @@ jobs:
              echo blabla > fake_companion.dmg
         
       - name: ftp
-        working-directory: ${{github.workspace}}
+        working-directory: ${{github.workspace}}/output
         shell: bash
         env: 
             USER: ${{ secrets.FTP_USERNAME }}
             PASSWORD: ${{ secrets.FTP_PASSWORD }}
             SERVER: ${{ secrets.FTP_SERVER }}
-        run:  lftp -c "open -u USER,PASSWORD SERVER; mput ${{github.workspace}}/output/*.dmg"
+        run:  ls -l &&
+              lftp -c "open -u USER,PASSWORD SERVER; mput *.dmg"
