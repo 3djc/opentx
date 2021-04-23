@@ -24,4 +24,4 @@ jobs:
       - name: ftp
         working-directory: ${{github.workspace}}
         shell: bash
-        run: scp * ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }}:""
+        run: lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; put -O / /*"
