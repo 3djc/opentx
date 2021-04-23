@@ -84,7 +84,7 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
-       name: companion
+       name: companion-nightly
        path:  ${{github.workspace}}/output
        retention-days: 1
 
