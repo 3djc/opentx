@@ -41,7 +41,7 @@ elif [ "$(uname)" = "Darwin" ]; then
   wget https://downloads.open-tx.org/2.3/nightlies/companion/companion-linux.stamp
   version=$(cut -d'N' -f 3 < companion-linux.stamp)
   version=$(echo $version | tr -cd '[[:digit:]]')
-  version=$(version+1)
+  version=$((version+1))
   version= 'N'+$version
   COMMON_OPTIONS="${COMMON_OPTIONS} -DVERSION_SUFFIX=$version"
 fi
