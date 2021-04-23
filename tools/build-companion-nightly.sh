@@ -36,7 +36,8 @@ if [ "$3" != "" ]; then
   COMMON_OPTIONS="${COMMON_OPTIONS} -DVERSION_SUFFIX=$3"
 else
   wget https://downloads.open-tx.org/2.3/nightlies/companion/companion-linux.stamp
-  version=$(grep -oP '(?<=\wN)\w+' companion-linux.stamp)
+  version=$(cut -d'N' -f 3 < companion-linux.stam)
+  version=$(echo $version | tr -cd '[[:digit:]]')
   version=$((version+1))
   COMMON_OPTIONS="${COMMON_OPTIONS} -DVERSION_SUFFIX=$version"
 fi
