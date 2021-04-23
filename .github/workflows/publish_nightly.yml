@@ -19,7 +19,7 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v2
         with:
-        name: companion-nightly
+          name: companion-nightly
         
       - name: ftp
         working-directory: ${{github.workspace}}
