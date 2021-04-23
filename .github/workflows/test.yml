@@ -1,4 +1,4 @@
-name: Test
+bname: Test
 
 on: workflow_dispatch
 
@@ -34,5 +34,4 @@ jobs:
             USER: ${{ secrets.FTP_USERNAME }}
             PASSWORD: ${{ secrets.FTP_PASSWORD }}
             SERVER: ${{ secrets.FTP_SERVER }}
-        run:  ls -l &&
-              lftp -c "open -u USER,PASSWORD SERVER; mput *.dmg"
+        run: lftp -c "debug; open -u USER,PASSWORD SERVER; mput *.dmg"
