@@ -1,4 +1,4 @@
-name: Do MacOSX Companion nightly
+name: Do MacOSX nightly Companion
 
 on: workflow_dispatch
 
