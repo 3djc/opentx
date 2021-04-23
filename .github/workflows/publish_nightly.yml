@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: install lftp
+        working-directory: ${{github.workspace}}
+        shell: bash
+        run:  sudo apt-get install lftp
+        
       - name: temp file
         working-directory: ${{github.workspace}}
         shell: bash
@@ -24,5 +29,4 @@ jobs:
       - name: ftp
         working-directory: ${{github.workspace}}
         shell: bash
-        run:  sudo apt-get install lftp &&
-              lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; put -O / /*"
+        run:  lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; put -O / /*"
