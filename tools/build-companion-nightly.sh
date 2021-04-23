@@ -4,9 +4,12 @@
 set -e
 set -x
 
-
-num_cpus=$(sysctl -n hw.ncpu)
-: "${JOBS:=$num_cpus}"
+if [ "$(uname)" = "Darwin" ]; then
+  num_cpus=$(sysctl -n hw.ncpu)
+  : "${JOBS:=$num_cpus}"
+else
+  JOBS=3
+fi
 
 while [ $# -gt 0 ]
 do
