@@ -35,11 +35,6 @@ jobs:
       with:
         release: '6-2017-q2'   
 
-    - name: install lftp
-      working-directory: ${{github.workspace}}
-      shell: bash
-      run:  brew install lftp
-        
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
@@ -63,7 +58,3 @@ jobs:
        path:  ${{github.workspace}}/output
        retention-days: 1
 
-    - name: ftp result
-      working-directory: ${{github.workspace}}/output
-      shell: bash
-      run: lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}  ${{ secrets.FTP_SERVER }}; mput *.dmg"
