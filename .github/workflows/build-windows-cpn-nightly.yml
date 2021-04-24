@@ -35,13 +35,6 @@ jobs:
       with:
         release: '6-2017-q2'   
 
-    - name: Install dfu-util
-      run:   wget https://downloads.sourceforge.net/project/dfu-util/dfu-util-0.9.tar.gz &&
-            tar xfv dfu-util-0.9.tar.gz &&
-            cd dfu-util-0.9 &&
-            ./configure &&
-            make install
-          
     - name: install lftp
       working-directory: ${{github.workspace}}
       shell: bash
