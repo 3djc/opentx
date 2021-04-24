@@ -35,6 +35,16 @@ jobs:
       with:
         release: '6-2017-q2'   
 
+    - name: download libSDL
+      uses: suisei-cn/actions-download-file@v1
+      id: downloadfile  # Remember to give an ID if you need the output filename
+      with:
+        url: "http://www.libsdl.org/release/SDL-devel-1.2.15-VC.zip"
+        target: ${{github.workspace}}
+             
+    - name: Install libDSL
+      run: 7z x SDL-devel-1.2.15-VC.zip C:\Programs\SDL
+    
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
