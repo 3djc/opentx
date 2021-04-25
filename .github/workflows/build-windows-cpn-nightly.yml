@@ -22,18 +22,18 @@ jobs:
       # We'll use this as our working directory for all subsequent commands
       run: cmake -E make_directory ${{github.workspace}}/build
       
-    #- name: Install Qt
-    #  uses: jurplel/install-qt-action@v2
-    #  with:
-    #    version: '5.12.9'
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.12.9'
         
-    #- name: Install dependencies
-    #  run: python -m pip install --upgrade pip Pillow
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip Pillow
       
-   # - name: Install ARM toolchain
-   #   uses: fiam/arm-none-eabi-gcc@v1
-   #   with:
-   #     release: '6-2017-q2'   
+    - name: Install ARM toolchain
+      uses: fiam/arm-none-eabi-gcc@v1
+      with:
+        release: '6-2017-q2'   
 
     - name: download libSDL
       uses: suisei-cn/actions-download-file@v1
@@ -44,7 +44,6 @@ jobs:
              
     - name: Install libDSL
       run: 7z e SDL-devel-1.2.15-VC.zip -o"C:\Program Files" -y &&
-            dir  "C:\Program Files" &&
             move "C:\Program Files\SDL-1.2.15" "C:\Program Files\SDL"
     
     - name: Configure CMake
