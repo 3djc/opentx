@@ -30,4 +30,4 @@ jobs:
       - name: ftp
         working-directory: ${{github.workspace}}/output
         shell: bash
-        run: lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}  ${{ secrets.FTP_SERVER }}; mput *.dmg"
+        run: lftp -c "debug; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}  ${{ secrets.FTP_SERVER }}; mput *.dmg"
