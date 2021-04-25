@@ -22,6 +22,19 @@ jobs:
       # We'll use this as our working directory for all subsequent commands
       run: cmake -E make_directory ${{github.workspace}}/build
       
+    - name: create prgrams directory
+      run: mkdir "C:\Programs"
+      
+    - name: download PThreads
+      uses: suisei-cn/actions-download-file@v1
+      id: pthreads  # Remember to give an ID if you need the output filename
+      with:
+        url: "https://www.mirrorservice.org/sites/sourceware.org/pub/pthreads-win32/pthreads-w32-2-8-0-release.exe"
+        target: "C:\Programs"
+      
+    - name: extract PThreads
+      run: 7z e pthreads-w32-2-8-0-release.exe -o"C:\Programs" -y
+    
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
