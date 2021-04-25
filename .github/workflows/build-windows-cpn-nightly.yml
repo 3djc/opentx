@@ -35,6 +35,9 @@ jobs:
       
     - name: extract PThreads
       run: 7z e "${{github.workspace}}\pthreads-w32-2-8-0-release.exe" -o"C:\Programs\pthreads" -y
+      
+    - name: check
+      run: dir "C:\Programs\pthreads"
     
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
