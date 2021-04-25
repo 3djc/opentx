@@ -33,7 +33,7 @@ jobs:
         target: "C:\Programs"
       
     - name: extract PThreads
-      run: 7z e pthreads-w32-2-8-0-release.exe -o"C:\Programs" -y
+      run: 7z e "C:\Programs\pthreads-w32-2-8-0-release.exe" -o"C:\Programs" -y
     
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
