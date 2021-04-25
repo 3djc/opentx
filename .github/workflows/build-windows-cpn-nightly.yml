@@ -43,9 +43,9 @@ jobs:
         target: ${{github.workspace}}
              
     - name: Install libDSL
-      run: 7z x SDL-devel-1.2.15-VC.zip C:\Programs &&
-            dir  C:\Programs &&
-            move C:\Programs\SDL-1.2.15 C:\Programs\SDL
+      run: 7z x SDL-devel-1.2.15-VC.zip "C:\Program Files" &&
+            dir  "C:\Program Files" &&
+            move "C:\Program Files\SDL-1.2.15" "C:\Program Files\SDL"
     
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
