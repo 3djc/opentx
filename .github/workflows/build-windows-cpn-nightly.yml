@@ -30,13 +30,13 @@ jobs:
       id: pthreads  # Remember to give an ID if you need the output filename
       with:
         url: "https://www.mirrorservice.org/sites/sourceware.org/pub/pthreads-win32/pthreads-w32-2-8-0-release.exe"
-        target: "Programs/"
+        target: ${{github.workspace}}
         
     - name: test
-      run: dir "C:\Programs"
+      run: dir ${{github.workspace}}
       
     - name: extract PThreads
-      run: 7z e "C:\Programs\pthreads-w32-2-8-0-release.exe" -o"C:\Programs" -y
+      run: 7z e "${{github.workspace}}\pthreads-w32-2-8-0-release.exe" -o"C:\Programs" -y
     
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
