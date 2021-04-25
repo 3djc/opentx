@@ -43,7 +43,7 @@ jobs:
         target: ${{github.workspace}}
              
     - name: Install libDSL
-      run: 7z e SDL-devel-1.2.15-VC.zip -o "C:\Program Files" &&
+      run: 7z e SDL-devel-1.2.15-VC.zip -o"C:\Program Files" -y &&
             dir  "C:\Program Files" &&
             move "C:\Program Files\SDL-1.2.15" "C:\Program Files\SDL"
     
