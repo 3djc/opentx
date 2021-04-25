@@ -22,18 +22,18 @@ jobs:
       # We'll use this as our working directory for all subsequent commands
       run: cmake -E make_directory ${{github.workspace}}/build
       
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v2
-      with:
-        version: '5.12.9'
+    #- name: Install Qt
+    #  uses: jurplel/install-qt-action@v2
+    #  with:
+    #    version: '5.12.9'
         
-    - name: Install dependencies
-      run: python -m pip install --upgrade pip Pillow
+    #- name: Install dependencies
+    #  run: python -m pip install --upgrade pip Pillow
       
-    - name: Install ARM toolchain
-      uses: fiam/arm-none-eabi-gcc@v1
-      with:
-        release: '6-2017-q2'   
+   # - name: Install ARM toolchain
+   #   uses: fiam/arm-none-eabi-gcc@v1
+   #   with:
+   #     release: '6-2017-q2'   
 
     - name: download libSDL
       uses: suisei-cn/actions-download-file@v1
@@ -43,9 +43,9 @@ jobs:
         target: ${{github.workspace}}
              
     - name: Install libDSL
-      run: 7z x SDL-devel-1.2.15-VC.zip C:\Programs &
-            dir  C:\Programs\ &
-            rename C:\Programs\SDL-1.2.15 C:\Programs\SDL
+      run: 7z x SDL-devel-1.2.15-VC.zip C:\Programs &&
+            dir  C:\Programs &&
+            move C:\Programs\SDL-1.2.15 C:\Programs\SDL
     
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
