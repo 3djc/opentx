@@ -104,10 +104,9 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: companion-nightly
-        path: ./
     - uses: eine/tip@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: 'nightly'
         files: |
-          ./artifact/*
+          ./*
