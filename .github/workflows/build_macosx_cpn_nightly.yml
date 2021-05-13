@@ -97,8 +97,15 @@ jobs:
        path:  ${{github.workspace}}/output
        retention-days: 1
 
-    - name: ftp result
-      working-directory: ${{github.workspace}}/output
-      shell: bash
-      run: lftp -c "debug; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}  ${{ secrets.FTP_SERVER }}; mput *.dmg"
-
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        path: ./
+    - uses: eine/tip@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: 'nightly'
+        files: |
+          ./artifact/*
