@@ -1,4 +1,4 @@
-name: Do MacOSX nightly Companion
+name: test tags
 
 on:
   schedule:
@@ -19,9 +19,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: genrate
-      run: mkdir ${{github.workspace}}/output &&
-           echo "test" >>  ${{github.workspace}}/output/companion.bin
+    - name: generate
+      working-directory: ${{github.workspace}}
+      shell: bash
+      run: mkdir output &&
+             cd output &&
+             echo blabla > fake_companion.dmg
 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
