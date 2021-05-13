@@ -108,5 +108,5 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: 'nightly'
-        files: |
-          ./*
+        rm: true
+        files: ./*
