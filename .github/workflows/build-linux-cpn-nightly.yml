@@ -1,8 +1,10 @@
 name: Do Linux nightly Companion
 
 on:
-  schedule:
-     - cron:  '20 23 * * *'
+  workflow_run:
+    workflows: ["Do MacOSX nightly Companion"]
+    types:
+      - completed
      
   workflow_dispatch:  
      
