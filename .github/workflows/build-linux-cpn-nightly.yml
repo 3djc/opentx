@@ -32,11 +32,7 @@ jobs:
           tar xjf gcc-arm-none-eabi-4_7-2013q3-20130916-linux.tar.bz2 &&
           mv gcc-arm-none-eabi-4_7-2013q3 /opt/gcc-arm-none-eabi &&
           echo "/opt/gcc-arm-none-eabi/bin:/opentx/code/radio/util" >> $GITHUB_PATH
-          
-    - name: Display the path
-      run: echo $PATH
-      shell: bash    
-          
+
     - name: Install pillow      
       run: python -m pip install filelock clang pillow
 
