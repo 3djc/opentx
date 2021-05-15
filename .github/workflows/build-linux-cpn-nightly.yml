@@ -49,7 +49,6 @@ jobs:
       run: mkdir ${{github.workspace}}/output && tools/build-companion-nightly.sh ${{github.workspace}}  ${{github.workspace}}/output/
       
     - uses: eine/tip@master
-    - name: Publish
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: 'nightly'
