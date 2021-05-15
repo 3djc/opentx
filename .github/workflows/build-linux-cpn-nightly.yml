@@ -47,4 +47,11 @@ jobs:
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: mkdir ${{github.workspace}}/output && tools/build-companion-nightly.sh ${{github.workspace}}  ${{github.workspace}}/output/
+      
+    - uses: eine/tip@master
+    - name: Publish
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: 'nightly'
+        files: ${{github.workspace}}/output/*.deb
    
