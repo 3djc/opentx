@@ -31,8 +31,7 @@ jobs:
       run: wget -q https://launchpad.net/gcc-arm-embedded/4.7/4.7-2013-q3-update/+download/gcc-arm-none-eabi-4_7-2013q3-20130916-linux.tar.bz2 &&
           tar xjf gcc-arm-none-eabi-4_7-2013q3-20130916-linux.tar.bz2 &&
           mv gcc-arm-none-eabi-4_7-2013q3 /opt/gcc-arm-none-eabi &&
-          export PATH="/opt/gcc-arm-none-eabi/bin:/opentx/code/radio/util:$PATH" &&
-          echo "{path}" >> $GITHUB_PATH
+          echo "{/opt/gcc-arm-none-eabi/bin:/opentx/code/radio/util}" >> $GITHUB_PATH
           
     - name: Display the path
       run: echo $PATH
