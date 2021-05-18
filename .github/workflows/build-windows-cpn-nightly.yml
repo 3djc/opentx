@@ -42,7 +42,9 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
-        arch: win32_msvc2015
+        host: 'windows'
+        target: 'desktop'
+        arch: 'win32_msvc2015'
         
     - name: Install dependencies
       run: python -m pip install --upgrade pip Pillow
