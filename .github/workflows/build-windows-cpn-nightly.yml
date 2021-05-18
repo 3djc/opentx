@@ -24,7 +24,8 @@ jobs:
       
     - name: Locate msbuild
       shell: cmd
-      run: dir /s *msbuild* 
+      run: cd / &&
+          dir /s *msbuild* 
       
     - name: Create pthreads programs directory
       run: mkdir "C:\Programs" &&
