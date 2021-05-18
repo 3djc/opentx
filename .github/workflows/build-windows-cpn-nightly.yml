@@ -77,7 +77,7 @@ jobs:
       working-directory: ${{github.workspace}}\build
       shell: cmd
       run: msbuild radio\src\targets\simu\libsimulator.vcxproj /p:Configuration=Release &&
-          msbuild companion/src/INSTALL.vcxproj /p:Configuration=Release
+          msbuild companion/src/installer.vcxproj /p:Configuration=Release
     
     - name: Dir
       working-directory: ${{github.workspace}}\build
