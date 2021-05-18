@@ -38,12 +38,11 @@ jobs:
       
     - name: extract PThreads
       run: 7z x "${{github.workspace}}\pthreads-w32-2-8-0-release.exe" -o"C:\Programs\pthreads" -y
-      
-    - name: check
-      run: dir "C:\Programs\pthreads"
     
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
+      with:
+        arch: win32_msvc2015
         
     - name: Install dependencies
       run: python -m pip install --upgrade pip Pillow
@@ -78,7 +77,7 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: cmd
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: SET COMMON_OPTIONS=-G "Visual Studio 16" ../code/ -DCMAKE_PREFIX_PATH=C:\Qt\Qt5.12.9\5.12\msvc2019 -DALLOW_NIGHTLY_BUILDS=YES -DGVARS=YES -DHELI=YES -DLUA=YES -DMULTIMODULE=YES -DTELEMETRY=FRSKY -DPPM_LIMITS_SYMETRICAL=YES -DVARIO=YES -DGAUGES=YES -DAUTOSWITCH=YES -DAUTOSOURCE=YES -DAUDIO=YES -DGPS=YES -DPPM_CENTER_ADJUSTABLE=YES -DFLIGHT_MODES=YES -DOVERRIDE_CHANNEL_FUNCTION=YES -DFRSKY_STICKS=YES -DTRANSLATIONS=EN &&
+      run: SET COMMON_OPTIONS=-G "Visual Studio 14" ../code/ -DCMAKE_PREFIX_PATH=C:\Qt\Qt5.12.9\5.12\msvc2019 -DALLOW_NIGHTLY_BUILDS=YES -DGVARS=YES -DHELI=YES -DLUA=YES -DMULTIMODULE=YES -DTELEMETRY=FRSKY -DPPM_LIMITS_SYMETRICAL=YES -DVARIO=YES -DGAUGES=YES -DAUTOSWITCH=YES -DAUTOSOURCE=YES -DAUDIO=YES -DGPS=YES -DPPM_CENTER_ADJUSTABLE=YES -DFLIGHT_MODES=YES -DOVERRIDE_CHANNEL_FUNCTION=YES -DFRSKY_STICKS=YES -DTRANSLATIONS=EN &&
           cmake -A win32 %COMMON_OPTIONS% -DPCB=X9E  ${{github.workspace}} &&
           msbuild radio\src\targets\simu\libsimulator.vcxproj /p:Configuration=Release
       
