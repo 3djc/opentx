@@ -45,7 +45,7 @@ jobs:
         host: 'windows'
         target: 'desktop'
         arch: 'win32_msvc2015'
-        setup-python: 'false'
+        aqtversion: '==0.7.1'
         
     - name: Install dependencies
       run: python -m pip install --upgrade pip Pillow
