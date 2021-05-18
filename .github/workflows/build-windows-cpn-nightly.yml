@@ -42,7 +42,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
-        version: '5.9.9'
+        version: '5.11.3'
         host: 'windows'
         target: 'desktop'
         arch: 'win32_msvc2015'
@@ -89,6 +89,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
        name: companion-nightly
-       path:  ${{github.workspace}}/output
+       path:  D:\a\opentx\opentx\companion\companion*.exe
        retention-days: 1
 
