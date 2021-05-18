@@ -70,11 +70,14 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: cmd
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: SET COMMON_OPTIONS=-G "Visual Studio 14" -DCMAKE_PREFIX_PATH=C:\Qt\Qt5.12.9\5.12\msvc2019 -DALLOW_NIGHTLY_BUILDS=YES -DGVARS=YES -DHELI=YES -DLUA=YES -DMULTIMODULE=YES -DTELEMETRY=FRSKY -DPPM_LIMITS_SYMETRICAL=YES -DVARIO=YES -DGAUGES=YES -DAUTOSWITCH=YES -DAUTOSOURCE=YES -DAUDIO=YES -DGPS=YES -DPPM_CENTER_ADJUSTABLE=YES -DFLIGHT_MODES=YES -DOVERRIDE_CHANNEL_FUNCTION=YES -DFRSKY_STICKS=YES -DTRANSLATIONS=EN &&
-          cmake  -A win32 -S ${{github.workspace}} -B ${{github.workspace}}\build %COMMON_OPTIONS% -DPCB=X9E &&
-          msbuild radio\src\targets\simu\libsimulator.vcxproj /p:Configuration=Release &&
-          msbuild companion/src/installer.vcxproj /p:Configuration=Release
+      run: cmake -A win32 -S ${{github.workspace}} -B ${{github.workspace}}\build %COMMON_OPTIONS% -DPCB=X9E
           
+    - name: Build release
+      working-directory: ${{github.workspace}}
+      shell: cmd
+      run: msbuild radio\src\targets\simu\libsimulator.vcxproj /p:Configuration=Release &&
+          msbuild companion/src/installer.vcxproj /p:Configuration=Release
+    
     - name: Dir
       working-directory: ${{github.workspace}}
       shell: cmd
