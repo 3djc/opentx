@@ -21,7 +21,7 @@ jobs:
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
       run: cmake -E make_directory ${{github.workspace}}/build &&
-          cp ${{github.workspace}}/LICENSE ${{github.workspace}}/build/licese.txt
+          cp ${{github.workspace}}/LICENSE ${{github.workspace}}/build/license.txt
       
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
