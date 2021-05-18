@@ -23,9 +23,9 @@ jobs:
       run: cmake -E make_directory ${{github.workspace}}/build
       
     - name: Locate msbuild
+      working-directory: "c:/"
       shell: cmd
-      run: c:/ &&
-          dir /s *msbuild* 
+      run: dir /s *msbuild* 
       
     - name: Create pthreads programs directory
       run: mkdir "C:\Programs" &&
