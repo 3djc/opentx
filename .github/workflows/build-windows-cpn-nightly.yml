@@ -71,22 +71,17 @@ jobs:
       shell: cmd
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake -A win32 -S ${{github.workspace}} -B ${{github.workspace}}\build -DPCB=X9E
-          
-    - name: Dir
-      working-directory: ${{github.workspace}}
-      shell: cmd
-      run: dir /s build\
       
     - name: Build release
-      working-directory: ${{github.workspace}}
+      working-directory: ${{github.workspace}}\build
       shell: cmd
       run: msbuild radio\src\targets\simu\libsimulator.vcxproj /p:Configuration=Release &&
           msbuild companion/src/installer.vcxproj /p:Configuration=Release
     
     - name: Dir
-      working-directory: ${{github.workspace}}
+      working-directory: ${{github.workspace}}\build
       shell: cmd
-      run: dir /s companion\
+      run: dir /s
       
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
