@@ -89,12 +89,12 @@ jobs:
     - name: Dir
       working-directory: ${{github.workspace}}
       shell: cmd
-      run: dir build\
+      run: dir companion\
       
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
        name: companion-nightly
-       path:  ${{github.workspace}}\build\companion*.exe
+       path:  ${{github.workspace}}\companion\companion*.exe
        retention-days: 1
 
