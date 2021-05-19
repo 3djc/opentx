@@ -56,14 +56,14 @@ jobs:
       with:
         release: '6-2017-q2'   
 
-    - name: download libSDL
+    - name: Download libSDL
       uses: suisei-cn/actions-download-file@v1
       id: downloadfile  # Remember to give an ID if you need the output filename
       with:
         url: "http://www.libsdl.org/release/SDL-devel-1.2.15-VC.zip"
         target: ${{github.workspace}}
              
-    - name: Install libDSL
+    - name: Install libSDL
       run: 7z e SDL-devel-1.2.15-VC.zip -o"C:\Program Files" -y &&
             move "C:\Program Files\SDL-1.2.15" "C:\Program Files\SDL"
                    
