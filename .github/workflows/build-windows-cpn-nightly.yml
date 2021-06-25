@@ -76,23 +76,17 @@ jobs:
     - name: Build Simu
       working-directory: ${{github.workspace}}\build
       shell: cmd
-      run: msbuild radio\src\targets\simu\libsimulator.vcxproj /p:Configuration=Release &&
-          msbuild companion/src/installer.vcxproj /t:Rebuild /p:Configuration=Release  
+      run: msbuild radio\src\targets\simu\libsimulator.vcxproj  /t:Rebuild /p:Configuration=Release  
           
     - name: Build release
       working-directory: ${{github.workspace}}\build
       shell: cmd
       run:   msbuild companion/src/installer.vcxproj /t:Rebuild /p:Configuration=Release
-    
-    - name: Dir
-      working-directory: ${{github.workspace}}\build
-      shell: cmd
-      run: dir /s
-      
+         
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
        name: companion-nightly
-       path:  ${{github.workspace}}\companion\companion*.exe
+       path:  ${{github.workspace}}\build\companion\companion*.exe
        retention-days: 1
 
