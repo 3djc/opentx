@@ -73,7 +73,7 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: cmd
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake -A win32 -G "Visual Studio 14" -S ${{github.workspace}}\sources -B ${{github.workspace}}\build -DPCB=X9E
+      run: cmake -A win32 -G "Visual Studio 14" -S ${{github.workspace}}\sources -B ${{github.workspace}}\build -DCMAKE_PREFIX_PATH=C:\Qt\5.11.3\msvc2019 -DPCB=X9E
       
     - name: Build Simu
       working-directory: ${{github.workspace}}\build
