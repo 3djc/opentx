@@ -71,13 +71,18 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: cmd
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake -A win32 -S ${{github.workspace}} -B ${{github.workspace}}\build -DPCB=X9E
+      run: cmake -A win32 -G "Visual Studio 14" -S ${{github.workspace}} -B ${{github.workspace}}\build -DPCB=X9E
       
-    - name: Build release
+    - name: Build Simu
       working-directory: ${{github.workspace}}\build
       shell: cmd
       run: msbuild radio\src\targets\simu\libsimulator.vcxproj /p:Configuration=Release &&
-          msbuild companion/src/installer.vcxproj /p:Configuration=Release
+          msbuild companion/src/installer.vcxproj /t:Rebuild /p:Configuration=Release  
+          
+    - name: Build release
+      working-directory: ${{github.workspace}}\build
+      shell: cmd
+      run:   msbuild companion/src/installer.vcxproj /t:Rebuild /p:Configuration=Release
     
     - name: Dir
       working-directory: ${{github.workspace}}\build
