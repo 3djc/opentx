@@ -48,7 +48,7 @@ jobs:
         version: '5.12.2'
         host: 'windows'
         target: 'desktop'
-        arch: 'win64_msvc2019_64'
+        arch: 'win64_msvc2017_64'
         
     - name: Install dependencies
       run: python -m pip install --upgrade pip Pillow
