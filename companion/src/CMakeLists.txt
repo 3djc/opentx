@@ -444,6 +444,7 @@ elseif(WIN32)
   find_path(EAY_LIB_DIR libeay32.dll HINTS
     "${WIN_PROGRAM_FILES}/OpenSSL" "${WIN_PROGRAM_FILES}/OpenSSL-Win32"
     "C:/OpenSSL/" "C:/OpenSSL-Win32/"
+    "${WIN_PROGRAM_FILES}/Docker" 
     "${WIN_EXTRA_LIBS_PATH}" "${WIN_EXTRA_LIBS_PATH}/OpenSSL" "${WIN_EXTRA_LIBS_PATH}/OpenSSL-Win32"
     "${MINGW_DIR}/../opt/bin"
     "${PYTHON_DIRECTORY}/lib/site-packages/PyQt4"
