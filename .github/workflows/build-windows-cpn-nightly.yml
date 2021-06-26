@@ -71,11 +71,6 @@ jobs:
       run: 7z e SDL-devel-1.2.15-VC.zip -o"C:\Program Files" -y &&
             move "C:\Program Files\SDL-1.2.15" "C:\Program Files\SDL"
             
-    - name: find lib
-      working-directory: c:\
-      shell: cmd
-      run: dir /s libeay32.dll
-                   
     - name: Build
       working-directory: ${{github.workspace}}
       shell: cmd
